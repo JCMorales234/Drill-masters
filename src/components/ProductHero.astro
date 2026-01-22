@@ -1,0 +1,194 @@
+---
+import heroNegro from '../assets/Pantalon drill negrov2.png';
+import beigeOscuro from '../assets/Pantalon drill beige oscurov2.png';
+import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
+---
+
+<section class="max-w-[1200px] mx-auto px-6 lg:px-10 py-12 md:py-24">
+  <div class="flex flex-col lg:flex-row gap-16 items-center">
+    <div class="w-full lg:w-1/2">
+      <div class="relative group">
+        <div class="absolute -inset-4 border-2 border-primary/20 -z-10 group-hover:-inset-6 transition-all duration-500"></div>
+        <div id="hero-image" class="relative w-full aspect-[4/5] bg-center bg-no-repeat bg-cover shadow-2xl overflow-hidden transition-all duration-700 group-hover:scale-105" style={`background-image: url('${heroNegro.src}');`}>
+          <div class="absolute bottom-6 left-6 bg-primary text-white px-4 py-2 text-xs font-black tracking-[0.3em] uppercase">Edición Premium</div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:w-1/2 flex flex-col gap-10">
+      <div class="flex flex-col gap-5">
+        <span class="inline-flex items-center px-4 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-black uppercase tracking-[0.3em] w-fit">Artesanía Nacional</span>
+        <h1 class="text-black dark:text-white text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter">
+          Pantalón de Drill Premium: <span class="text-primary">Estilo y Confort</span>
+        </h1>
+        <p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
+          Experimenta el ajuste perfecto con nuestra artesanía nacional. Diseñados para durar y ofrecer la máxima comodidad en cualquier entorno urbano.
+        </p>
+      </div>
+      <div class="flex flex-col gap-8 p-8 bg-white dark:bg-black border-4 border-black dark:border-white shadow-[12px_12px_0px_0px_rgba(59,130,246,1)]">
+        <div class="flex flex-col gap-4">
+          <span class="text-xs font-black uppercase tracking-[0.2em] text-gray-500">Selecciona tu color</span>
+          <div class="flex gap-4">
+            <button class="size-12 rounded-full border-4 border-primary bg-[#000000] scale-110" title="Negro" data-hero-color="negro" data-image={heroNegro.src}></button>
+            <button class="size-12 rounded-full border-2 border-transparent bg-[#f0ddc0] hover:scale-105 transition-transform" title="Beige claro" data-hero-color="beige-claro" data-image={beigeClaro.src}></button>
+            <button class="size-12 rounded-full border-2 border-transparent bg-[#d4b483] hover:scale-105 transition-transform" title="Beige oscuro" data-hero-color="beige-oscuro" data-image={beigeOscuro.src}></button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div class="flex justify-between items-end">
+            <span class="text-xs font-black uppercase tracking-[0.2em] text-gray-500">Tallas disponibles</span>
+            <a class="text-[10px] font-black text-primary underline decoration-2 underline-offset-4 tracking-widest uppercase" href="#tallas">Guía de tallas</a>
+          </div>
+          <div class="grid grid-cols-5 gap-3">
+            <button class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" data-size="28">28</button>
+            <button class="h-12 border-2 border-primary bg-primary text-white flex items-center justify-center text-sm font-black" data-size="30">30</button>
+            <button class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" data-size="32">32</button>
+            <button class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" data-size="34">34</button>
+            <button class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" data-size="36">36</button>
+          </div>
+        </div>
+        <button data-buy-now class="w-full flex cursor-pointer items-center justify-center h-16 bg-black dark:bg-primary text-white text-xl font-black tracking-[0.2em] hover:bg-primary dark:hover:bg-white dark:hover:text-black transition-all group">
+          <span class="truncate">COMPRAR AHORA</span>
+          <span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span>
+        </button>
+        <div class="flex items-center justify-center gap-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-2">
+          <span class="material-symbols-outlined text-sm">local_shipping</span>
+          <span>Envío Gratis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Script interactive logic
+  window.addEventListener('DOMContentLoaded', () => {
+    const heroImage = document.getElementById('hero-image');
+    const colorButtons = document.querySelectorAll<HTMLButtonElement>('[data-hero-color]');
+    const sizeButtons = document.querySelectorAll<HTMLButtonElement>('[data-size]');
+    const buyButton = document.querySelector<HTMLButtonElement>('[data-buy-now]');
+  
+    if (!heroImage || !colorButtons.length) return;
+  
+    let selection = {
+      color: 'negro',
+      size: '30',
+    };
+  
+    try {
+      const stored = localStorage.getItem('drillSelection');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && typeof parsed === 'object') {
+          if (parsed.color) selection.color = String(parsed.color);
+          if (parsed.size) selection.size = String(parsed.size);
+        }
+      }
+    } catch (error) {
+    }
+  
+    const saveSelection = () => {
+      try {
+        localStorage.setItem('drillSelection', JSON.stringify(selection));
+      } catch (error) {
+      }
+    };
+  
+    const setActiveColorButton = (active: HTMLButtonElement) => {
+      colorButtons.forEach((button) => {
+        button.classList.remove('border-4', 'border-primary', 'scale-110');
+        button.classList.add('border-2', 'border-transparent');
+      });
+      active.classList.remove('border-2', 'border-transparent');
+      active.classList.add('border-4', 'border-primary', 'scale-110');
+    };
+  
+    const setActiveSizeButton = (active: HTMLButtonElement) => {
+      sizeButtons.forEach((button) => {
+        button.classList.remove('border-primary', 'bg-primary', 'text-white');
+        button.classList.add('border-black', 'dark:border-white');
+      });
+      active.classList.remove('border-black', 'dark:border-white');
+      active.classList.add('border-primary', 'bg-primary', 'text-white');
+    };
+  
+    const applyColorFromSelection = () => {
+      const buttonsArray = Array.from(colorButtons);
+      const target =
+        buttonsArray.find(
+          (button) => button.getAttribute('data-hero-color') === selection.color
+        ) || buttonsArray[0];
+  
+      if (!target) return;
+  
+      const image = target.getAttribute('data-image');
+      if (image) {
+        heroImage.style.backgroundImage = `url('${image}')`;
+      }
+      setActiveColorButton(target);
+    };
+  
+    const applySizeFromSelection = () => {
+      if (!sizeButtons.length) return;
+      const buttonsArray = Array.from(sizeButtons);
+      const target =
+        buttonsArray.find((button) => button.getAttribute('data-size') === selection.size) ||
+        buttonsArray[0];
+  
+      if (!target) return;
+      setActiveSizeButton(target);
+    };
+  
+    colorButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const image = button.getAttribute('data-image');
+        const color = button.getAttribute('data-hero-color');
+        if (image) {
+          heroImage.style.backgroundImage = `url('${image}')`;
+        }
+        if (color) {
+          selection.color = color;
+          saveSelection();
+        }
+        setActiveColorButton(button);
+      });
+    });
+  
+    // Add TypeScript type annotations to size button event listener
+    sizeButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const size = button.getAttribute('data-size');
+        if (!size) return;
+        selection.size = size;
+        saveSelection();
+        setActiveSizeButton(button);
+      });
+    });
+  
+    if (buyButton) {
+      buyButton.addEventListener('click', () => {
+        if (!selection.color || !selection.size) {
+          alert('Por favor selecciona un color y una talla antes de continuar.');
+          return;
+        }
+  
+        const colorLabelMap: Record<string, string> = {
+          'negro': 'Negro',
+          'beige-claro': 'Beige claro',
+          'beige-oscuro': 'Beige oscuro',
+        };
+  
+        const colorLabel = colorLabelMap[selection.color] || selection.color;
+        // Using the number provided by user: 57310457434
+        const phone = '57310457434';
+        const message = `¡Hola! Me interesa comprar el pantalón:\n- Color: ${colorLabel}\n- Talla: ${selection.size}\n\n¿Está disponible para envío inmediato?`;
+        
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  
+        window.open(url, '_blank');
+      });
+    }
+  
+    applyColorFromSelection();
+    applySizeFromSelection();
+  });
+</script>

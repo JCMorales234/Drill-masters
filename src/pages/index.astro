@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProductHero from '../components/ProductHero.astro';
 import heroNegro from '../assets/Pantalon drill negrov2.png';
 import beigeOscuro from '../assets/Pantalon drill beige oscurov2.png';
 import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
@@ -10,10 +11,6 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
 <div class="max-w-[1200px] mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
 <div class="flex items-center gap-3">
 <div class="text-primary size-8">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
-<path clip-rule="evenodd" d="M10.4485 13.8519C10.4749 13.9271 10.6203 14.246 11.379 14.7361C12.298 15.3298 13.7492 15.9145 15.6717 16.3735C18.0007 16.9296 20.8712 17.2655 24 17.2655C27.1288 17.2655 29.9993 16.9296 32.3283 16.3735C34.2508 15.9145 35.702 15.3298 36.621 14.7361C37.3796 14.246 37.5251 13.9271 37.5515 13.8519C37.5287 13.7876 37.4333 13.5973 37.0635 13.2931C36.5266 12.8516 35.6288 12.3647 34.343 11.9175C31.79 11.0295 28.1333 10.4437 24 10.4437C19.8667 10.4437 16.2099 11.0295 13.657 11.9175C12.3712 12.3647 11.4734 12.8516 10.9365 13.2931C10.5667 13.5973 10.4713 13.7876 10.4485 13.8519ZM37.5563 18.7877C36.3176 19.3925 34.8502 19.8839 33.2571 20.2642C30.5836 20.9025 27.3973 21.2655 24 21.2655C20.6027 21.2655 17.4164 20.9025 14.7429 20.2642C13.1498 19.8839 11.6824 19.3925 10.4436 18.7877V34.1275C10.4515 34.1545 10.5427 34.4867 11.379 35.027C12.298 35.6207 13.7492 36.2054 15.6717 36.6644C18.0007 37.2205 20.8712 37.5564 24 37.5564C27.1288 37.5564 29.9993 37.2205 32.3283 36.6644C34.2508 36.2054 35.702 35.6207 36.621 35.027C37.4573 34.4867 37.5485 34.1546 37.5563 34.1275V18.7877ZM41.5563 13.8546V34.1455C41.5563 36.1078 40.158 37.5042 38.7915 38.3869C37.3498 39.3182 35.4192 40.0389 33.2571 40.5551C30.5836 41.1934 27.3973 41.5564 24 41.5564C20.6027 41.5564 17.4164 41.1934 14.7429 40.5551C12.5808 40.0389 10.6502 39.3182 9.20848 38.3869C7.84205 37.5042 6.44365 36.1078 6.44365 34.1455L6.44365 13.8546C6.44365 12.2684 7.37223 11.0454 8.39581 10.2036C9.43325 9.3505 10.8137 8.67141 12.343 8.13948C15.4203 7.06909 19.5418 6.44366 24 6.44366C28.4582 6.44366 32.5797 7.06909 35.657 8.13948C37.1863 8.67141 38.5667 9.3505 39.6042 10.2036C40.6278 11.0454 41.5563 12.2684 41.5563 13.8546Z" fill="currentColor" fill-rule="evenodd"></path>
-</svg>
 </div>
 <h2 class="text-[#000000] dark:text-white text-2xl font-black leading-tight tracking-tighter">Drill Masters</h2>
 </div>
@@ -22,66 +19,13 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
 		<a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#calidad">Calidad</a>
 <a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#tallas">Tallas</a>
 <a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#faq">FAQ</a>
-<button class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+<a href={`https://wa.me/57310457434?text=${encodeURIComponent("¡Hola! Quiero llevar mi estilo al siguiente nivel con el mejor pantalón de drill de Colombia.")}`} target="_blank" rel="noopener noreferrer" class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
 <span>COMPRAR</span>
-</button>
+</a>
 </div>
 </div>
 </div>
-<section class="max-w-[1200px] mx-auto px-6 lg:px-10 py-12 md:py-24">
-<div class="flex flex-col lg:flex-row gap-16 items-center">
-<div class="w-full lg:w-1/2">
-<div class="relative group">
-<div class="absolute -inset-4 border-2 border-primary/20 -z-10 group-hover:-inset-6 transition-all duration-500"></div>
-<div id="hero-image" class="relative w-full aspect-[4/5] bg-center bg-no-repeat bg-cover shadow-2xl overflow-hidden transition-all duration-700 group-hover:scale-105" style={`background-image: url('${heroNegro.src}');`}>
-<div class="absolute bottom-6 left-6 bg-primary text-white px-4 py-2 text-xs font-black tracking-[0.3em] uppercase">Edición Premium</div>
-</div>
-</div>
-</div>
-<div class="w-full lg:w-1/2 flex flex-col gap-10">
-<div class="flex flex-col gap-5">
-<span class="inline-flex items-center px-4 py-1 bg-black text-white dark:bg-white dark:text-black text-[10px] font-black uppercase tracking-[0.3em] w-fit">Artesanía Nacional</span>
-<h1 class="text-black dark:text-white text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter">
-                    Pantalón de Drill Premium: <span class="text-primary">Estilo y Confort</span>
-</h1>
-<p class="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed max-w-lg">
-                    Experimenta el ajuste perfecto con nuestra artesanía nacional. Diseñados para durar y ofrecer la máxima comodidad en cualquier entorno urbano.
-                </p>
-</div>
-<div class="flex flex-col gap-8 p-8 bg-white dark:bg-black border-4 border-black dark:border-white shadow-[12px_12px_0px_0px_rgba(59,130,246,1)]">
-<div class="flex flex-col gap-4">
-<span class="text-xs font-black uppercase tracking-[0.2em] text-gray-500">Selecciona tu color</span>
-<div class="flex gap-4">
-<button class="size-12 rounded-full border-4 border-primary bg-[#000000] scale-110" title="Negro" data-hero-color="negro" data-image={heroNegro.src}></button>
-<button class="size-12 rounded-full border-2 border-transparent bg-[#f0ddc0] hover:scale-105 transition-transform" title="Beige claro" data-hero-color="beige-claro" data-image={beigeClaro.src}></button>
-<button class="size-12 rounded-full border-2 border-transparent bg-[#d4b483] hover:scale-105 transition-transform" title="Beige oscuro" data-hero-color="beige-oscuro" data-image={beigeOscuro.src}></button>
-</div>
-</div>
-<div class="flex flex-col gap-4">
-<div class="flex justify-between items-end">
-<span class="text-xs font-black uppercase tracking-[0.2em] text-gray-500">Tallas disponibles</span>
-<a class="text-[10px] font-black text-primary underline decoration-2 underline-offset-4 tracking-widest uppercase" href="#tallas">Guía de tallas</a>
-</div>
-<div class="grid grid-cols-5 gap-3">
-<div class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black">28</div>
-<div class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black">30</div>
-<div class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black">32</div>
-<div class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black">34</div>
-<div class="h-12 border-2 border-black dark:border-white flex items-center justify-center text-sm font-black">36</div>
-</div>
-</div>
-<button class="w-full flex cursor-pointer items-center justify-center h-16 bg-black dark:bg-primary text-white text-xl font-black tracking-[0.2em] hover:bg-primary dark:hover:bg-white dark:hover:text-black transition-all group">
-<span class="truncate">COMPRAR AHORA</span>
-<span class="material-symbols-outlined ml-2 group-hover:translate-x-2 transition-transform">arrow_forward</span>
-</button>
-<div class="flex items-center justify-center gap-2 text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-2">
-<span class="material-symbols-outlined text-sm">local_shipping</span>
-<span>Envío Gratis</span>
-</div>
-</div>
-</div>
-</div>
-</section>
+<ProductHero />
 <section id="calidad" class="bg-black text-white py-24 overflow-hidden">
 <div class="max-w-[1200px] mx-auto px-6 lg:px-10">
 <div class="flex flex-col gap-6 mb-16 relative">
@@ -309,11 +253,6 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
 <div class="max-w-[1200px] mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-3 gap-16 md:justify-items-center">
 <div class="col-span-1 md:col-span-1 flex flex-col gap-8">
 <div class="flex items-center gap-3">
-<div class="text-primary size-8">
-<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-<path d="M39.5563 34.1455V13.8546C39.5563 15.708 36.8773 17.3437 32.7927 18.3189C30.2914 18.916 27.263 19.2655 24 19.2655C20.737 19.2655 17.7086 18.916 15.2073 18.3189C11.1227 17.3437 8.44365 15.708 8.44365 13.8546V34.1455C8.44365 35.9988 11.1227 37.6346 15.2073 38.6098C17.7086 39.2069 20.737 39.5564 24 39.5564C27.1288 39.5564 30.2914 39.2069 32.7927 38.6098C36.8773 37.6346 39.5563 35.9988 39.5563 34.1455Z" fill="currentColor"></path>
-</svg>
-</div>
 <span class="text-2xl font-black tracking-tighter uppercase">Drill Masters</span>
 </div>
 <p class="text-gray-400 text-sm font-medium leading-relaxed">Elevando el estándar de la moda urbana con calidad nacional garantizada.</p>
@@ -336,31 +275,4 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
         © 2026 Drill Masters. Hecho con orgullo nacional. Todos los derechos reservados.
     </div>
 </footer>
-<script>
-window.addEventListener('DOMContentLoaded', () => {
-  const heroImage = document.getElementById('hero-image');
-  if (!heroImage) return;
-
-  const colorButtons = document.querySelectorAll('[data-hero-color]');
-  if (!colorButtons.length) return;
-
-  const setActiveButton = (active: HTMLElement) => {
-    colorButtons.forEach((button) => {
-      button.classList.remove('border-4', 'border-primary', 'scale-110');
-      button.classList.add('border-2', 'border-transparent');
-    });
-    active.classList.remove('border-2', 'border-transparent');
-    active.classList.add('border-4', 'border-primary', 'scale-110');
-  };
-
-  colorButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const image = button.getAttribute('data-image');
-      if (!image) return;
-      heroImage.style.backgroundImage = `url('${image}')`;
-      setActiveButton(button as HTMLElement);
-    });
-  });
-});
-</script>
 </Layout>

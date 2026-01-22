@@ -1,11 +1,12 @@
 ---
 import '../styles/global.css';
+import logo from '../assets/logo.ico';
 
 interface Props {
 	title?: string;
 }
 
-const { title = "Premium Drill Pants - Urban Streetwear Edition" } = Astro.props;
+const { title = "Drill Masters" } = Astro.props;
 ---
 
 <!doctype html>
@@ -13,7 +14,7 @@ const { title = "Premium Drill Pants - Urban Streetwear Edition" } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href={logo} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
