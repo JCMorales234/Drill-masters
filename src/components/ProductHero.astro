@@ -37,9 +37,9 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
         <div class="flex flex-col gap-4">
           <span class="text-xs font-black uppercase tracking-[0.2em] text-gray-500">Selecciona tu color</span>
           <div class="flex gap-4">
-            <button class="size-12 rounded-full border-4 border-primary bg-[#000000] scale-110" title="Negro" data-hero-color="negro" data-image={heroNegro.src}></button>
-            <button class="size-12 rounded-full border-2 border-transparent bg-[#f0ddc0] hover:scale-105 transition-transform" title="Beige claro" data-hero-color="beige-claro" data-image={beigeClaro.src}></button>
-            <button class="size-12 rounded-full border-2 border-transparent bg-[#d4b483] hover:scale-105 transition-transform" title="Beige oscuro" data-hero-color="beige-oscuro" data-image={beigeOscuro.src}></button>
+            <button class="size-12 rounded-full border-4 border-primary bg-[#000000] scale-110" aria-label="Seleccionar color Negro" title="Negro" data-hero-color="negro" data-image={heroNegro.src}></button>
+            <button class="size-12 rounded-full border-2 border-transparent bg-[#f0ddc0] hover:scale-105 transition-transform" aria-label="Seleccionar color Beige claro" title="Beige claro" data-hero-color="beige-claro" data-image={beigeClaro.src}></button>
+            <button class="size-12 rounded-full border-2 border-transparent bg-[#d4b483] hover:scale-105 transition-transform" aria-label="Seleccionar color Beige oscuro" title="Beige oscuro" data-hero-color="beige-oscuro" data-image={beigeOscuro.src}></button>
           </div>
         </div>
         <div class="flex flex-col gap-4">
@@ -187,15 +187,28 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
           'beige-claro': 'Beige claro',
           'beige-oscuro': 'Beige oscuro',
         };
+
+        const validSizes = ['28', '30', '32', '34', '36'];
   
-        const colorLabel = colorLabelMap[selection.color] || selection.color;
+        // Strict validation to prevent data tampering
+        const colorLabel = colorLabelMap[selection.color];
+        if (!colorLabel) {
+             alert('Error: Color seleccionado no válido.');
+             return;
+        }
+
+        if (!validSizes.includes(selection.size)) {
+             alert('Error: Talla seleccionada no válida.');
+             return;
+        }
+
       // Using the number provided by user: 573104574348
       const phone = '573104574348';
       const message = `¡Hola! Me interesa comprar el pantalón:\n- Color: ${colorLabel}\n- Talla: ${selection.size}\n\n¿Está disponible para envío inmediato?`;
         
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-  
-        window.open(url, '_blank');
+
+        window.open(url, '_blank', 'noopener,noreferrer');
       });
     }
   

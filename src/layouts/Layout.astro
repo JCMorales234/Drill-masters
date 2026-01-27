@@ -12,6 +12,8 @@ const { title = "Drill Masters" } = Astro.props;
 <!doctype html>
 <html lang="es">
 	<head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
 		<script is:inline>
 			// On page load or when changing themes, best to add inline in `head` to avoid FOUC
 			// Default to light mode unless user explicitly chose dark
@@ -21,7 +23,6 @@ const { title = "Drill Masters" } = Astro.props;
 				document.documentElement.classList.remove('dark');
 			}
 		</script>
-		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href={logo} />
 		<meta name="generator" content={Astro.generator} />
