@@ -4,6 +4,10 @@ import ProductHero from '../components/ProductHero.astro';
 import heroNegro from '../assets/Pantalon drill negrov2.png';
 import beigeOscuro from '../assets/Pantalon drill beige oscurov2.png';
 import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
+
+const whatsappPhone = import.meta.env.PUBLIC_WHATSAPP_PHONE || '573104574348';
+const whatsappMessage = encodeURIComponent("¡Hola! Quiero llevar mi estilo al siguiente nivel con el mejor pantalón de drill de Colombia.");
+const whatsappUrl = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
 ---
 
 <Layout>
@@ -20,7 +24,7 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
                 <a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#calidad">Calidad</a>
                 <a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#tallas">Tallas</a>
                 <a class="text-xs uppercase font-black tracking-widest hover:text-primary transition-colors" href="#faq">FAQ</a>
-                <a href={`https://wa.me/573104574348?text=${encodeURIComponent("¡Hola! Quiero llevar mi estilo al siguiente nivel con el mejor pantalón de drill de Colombia.")}`} target="_blank" rel="noopener noreferrer" class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="flex min-w-[120px] cursor-pointer items-center justify-center rounded-none h-11 px-6 bg-primary text-white text-xs font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                     <span>COMPRAR</span>
                 </a>
             </div>
@@ -47,7 +51,7 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
             <a class="text-sm uppercase font-black tracking-widest hover:text-primary transition-colors" href="#calidad">Calidad</a>
             <a class="text-sm uppercase font-black tracking-widest hover:text-primary transition-colors" href="#tallas">Tallas</a>
             <a class="text-sm uppercase font-black tracking-widest hover:text-primary transition-colors" href="#faq">FAQ</a>
-            <a href={`https://wa.me/573104574348?text=${encodeURIComponent("¡Hola! Quiero llevar mi estilo al siguiente nivel con el mejor pantalón de drill de Colombia.")}`} target="_blank" rel="noopener noreferrer" class="flex w-full cursor-pointer items-center justify-center rounded-none h-14 bg-primary text-white text-sm font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="flex w-full cursor-pointer items-center justify-center rounded-none h-14 bg-primary text-white text-sm font-black tracking-[0.2em] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
                 <span>COMPRAR</span>
             </a>
         </div>
@@ -303,59 +307,4 @@ import beigeClaro from '../assets/Pantalon drill beige clarov2.png';
         © 2026 Drill Masters. Hecho con orgullo nacional. Todos los derechos reservados.
     </div>
 </footer>
-<script>
-    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-    // Change the icons inside the button based on previous settings
-    if (themeToggleDarkIcon && themeToggleLightIcon) {
-        if (localStorage.getItem('drill-theme') === 'dark') {
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
-    }
-
-    const themeToggleBtn = document.getElementById('theme-toggle');
-
-    if (themeToggleBtn && themeToggleDarkIcon && themeToggleLightIcon) {
-        themeToggleBtn.addEventListener('click', function() {
-
-            // toggle icons inside button
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-
-            // if set via local storage previously
-            if (localStorage.getItem('drill-theme')) {
-                if (localStorage.getItem('drill-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('drill-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('drill-theme', 'light');
-                }
-
-            // if NOT set via local storage previously
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('drill-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('drill-theme', 'dark');
-                }
-            }
-        });
-    }
-
-    // Mobile menu toggle logic
-    const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-</script>
-</Layout>
