@@ -13,7 +13,7 @@ const { title = "Drill Masters" } = Astro.props;
 <html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
 		<script is:inline>
 			if (localStorage.getItem('drill-theme') === 'dark') {
 				document.documentElement.classList.add('dark');
@@ -32,6 +32,5 @@ const { title = "Drill Masters" } = Astro.props;
 	</head>
 	<body class="bg-background-light dark:bg-background-dark text-[#000000] dark:text-gray-100">
 		<slot />
-        <script type="module" src="../scripts/index-app.ts"></script>
 	</body>
 </html>
